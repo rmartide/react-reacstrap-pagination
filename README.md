@@ -16,7 +16,7 @@ PaginationComponent.propTypes = {
   pageSize: PropTypes.number.isRequired,
   // Function to receive the event when a page is selected
   onSelect: PropTypes.func.isRequired,
-  // Number of pages being displayed, by default 5 (1 to 5)
+  // Number of pages being displayed, by default 5
   maxPaginationNumbers: PropTypes.number
 }
 ```
