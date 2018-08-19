@@ -38,8 +38,8 @@
   "license": "MIT",
   "main": "dist/PaginationComponent.js",
   "keywords": [
-    "dropdown",
-    "input",
-    "react"
+    "react",
+    "reactstrap",
+    "pagination"
   ]
 }

@@ -3,8 +3,6 @@ import { Pagination, PaginationItem, PaginationLink } from 'reactstrap';
 import PropTypes from 'prop-types';
 
 class PaginationComponent extends Component {
-    pages;
-    lastPaginationNumber;
     constructor(props) {
         super(props);
         this.state = {
