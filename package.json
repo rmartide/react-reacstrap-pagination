@@ -34,7 +34,7 @@
     "type": "git",
     "url": "https://github.com/rmartide/react-reacstrap-pagination.git"
   },
-  "homepage": "https://rmartide.github.io/ReactCustomDropdownInput/",
+  "homepage": "https://rmartide.github.io/react-reacstrap-pagination/",
   "license": "MIT",
   "main": "dist/PaginationComponent.js",
   "keywords": [

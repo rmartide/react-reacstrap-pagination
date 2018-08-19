@@ -1,10 +1,6 @@
 # React Reactstrap Pagination
 
-Pagination component for Reactstrap
-
-## Demo
-
-[Live demo](#)
+Pagination component made using Reactstrap PaginationItem and PaginationLink components.
 
 ## Props
 
