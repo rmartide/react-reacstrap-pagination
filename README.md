@@ -26,3 +26,7 @@ PaginationComponent.propTypes = {
 ```js
   <PaginationComponent totalItems={50} pageSize={5} onSelect={this.handleSelected} />
 ```
+
+## Update
+
+Now if the props change the component will update. (Thanks JaydeeSale!)
