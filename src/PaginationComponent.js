@@ -9,11 +9,16 @@ class PaginationComponent extends Component {
             activePage: 1,
             firstPaginationNumber: 1
         }
-        this.pages = this.getNumberOfPages();
+        this.pages = this.getNumberOfPages(this.props);
     }
 
-    getNumberOfPages = () => {
-        const auxPages = this.props.totalItems / this.props.pageSize;
+    componentWillReceiveProps(props) {
+        this.pages = this.getNumberOfPages(props);
+        this.forceUpdate();
+    }
+
+    getNumberOfPages = (props) => {
+        const auxPages = props.totalItems / props.pageSize;
         let pages = parseInt(auxPages, 10);
         pages += pages !== auxPages ? 1 : 0;
         return pages;
