@@ -6,7 +6,7 @@ class PaginationComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            activePage: 1,
+            activePage: this.props.activePage,
             firstPaginationNumber: 1
         }
         this.pages = this.getNumberOfPages(this.props);
@@ -135,11 +135,13 @@ PaginationComponent.propTypes = {
     totalItems: PropTypes.number.isRequired,
     pageSize: PropTypes.number.isRequired,
     onSelect: PropTypes.func.isRequired,
-    maxPaginationNumbers: PropTypes.number
+    maxPaginationNumbers: PropTypes.number,
+    activePage: PropTypes.number
 }
 
 PaginationComponent.defaultProps = {
-    maxPaginationNumbers: 5
+    maxPaginationNumbers: 5,
+    activePage: 1
 }
 
 export default PaginationComponent;
