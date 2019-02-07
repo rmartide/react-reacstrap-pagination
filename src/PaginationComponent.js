@@ -105,7 +105,7 @@ class PaginationComponent extends Component {
         const distance = Math.floor(this.props.maxPaginationNumbers / 2);
         const newFPNumber = activePage - distance;
         const newLPNumber = activePage + distance;
-        if (newFPNumber <= 1) {
+        if (newFPNumber <= distance) {
             if (this.state.firstPaginationNumber !== 1) {
                 this.setState({
                     firstPaginationNumber: 1
