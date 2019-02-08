@@ -17,7 +17,9 @@ PaginationComponent.propTypes = {
   // Function to receive the event when a page is selected
   onSelect: PropTypes.func.isRequired,
   // Number of pages being displayed, by default 5
-  maxPaginationNumbers: PropTypes.number
+  maxPaginationNumbers: PropTypes.number,
+  // Page where the pagination starts, by default 1
+  activePage: PropTypes.number
 }
 ```
 
@@ -30,3 +32,5 @@ PaginationComponent.propTypes = {
 ## Update
 
 Now if the props change the component will update. (Thanks JaydeeSale!)
+
+Added prop activePage to have a different start page. (Thanks JalalAlbasri!)

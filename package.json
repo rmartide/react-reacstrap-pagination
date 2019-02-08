@@ -1,6 +1,6 @@
 {
   "name": "react-reactstrap-pagination",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Reactstrap pagination component",
   "private": false,
   "dependencies": {
