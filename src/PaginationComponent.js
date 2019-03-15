@@ -45,7 +45,7 @@ class PaginationComponent extends Component {
     numberedPagItem = (i) => {
         return (
             <PaginationItem key={i} id={`pagebutton${i}`} active={this.state.activePage === i} onClick={this.handleClick}>
-                <PaginationLink style={{ minWidth: '43.5px' }} {...this.props.paginationLink}>
+                <PaginationLink style={{ minWidth: '43.5px' }} {...this.props.paginationLinkProps}>
                     {i}
                 </PaginationLink>
             </PaginationItem>
@@ -55,7 +55,7 @@ class PaginationComponent extends Component {
     nextOrPreviousPagItem = (name, page, direction) => {
         return (
             <PaginationItem key={name} disabled={this.state.activePage === page} onClick={(e) => this.handleSelectNextOrPrevious(direction)}>
-                <PaginationLink {...this.props.paginationLink}>
+                <PaginationLink {...this.props.paginationLinkProps}>
                     {name}
                 </PaginationLink>
             </PaginationItem>
@@ -70,7 +70,7 @@ class PaginationComponent extends Component {
         }
         return (
             <PaginationItem key={name} disabled={this.state.activePage === page} onClick={() => this.handleClick(event)}>
-                <PaginationLink {...this.props.paginationLink}>
+                <PaginationLink {...this.props.paginationLinkprops}>
                     {name}
                 </PaginationLink>
             </PaginationItem>
