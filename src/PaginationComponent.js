@@ -124,7 +124,7 @@ class PaginationComponent extends Component {
 
     render() {
         return (
-            <Pagination>
+            <Pagination {...this.props.paginationProps}>
                 {this.paginationItems()}
             </Pagination>
         )
@@ -136,12 +136,14 @@ PaginationComponent.propTypes = {
     pageSize: PropTypes.number.isRequired,
     onSelect: PropTypes.func.isRequired,
     maxPaginationNumbers: PropTypes.number,
-    activePage: PropTypes.number
+    activePage: PropTypes.number,
+    paginationProps: PropTypes.shape(),
 }
 
 PaginationComponent.defaultProps = {
     maxPaginationNumbers: 5,
-    activePage: 1
+    activePage: 1,
+    paginationProps: {},
 }
 
 export default PaginationComponent;
