@@ -138,14 +138,14 @@ PaginationComponent.propTypes = {
     maxPaginationNumbers: PropTypes.number,
     activePage: PropTypes.number,
     paginationProps: PropTypes.shape(),
-    paginationLink: PropTypes.shape(),
+    PaginationLink: PropTypes.shape(),
 }
 
 PaginationComponent.defaultProps = {
     maxPaginationNumbers: 5,
     activePage: 1,
     paginationProps: {},
-    paginationLink: {},
+    PaginationLink: {},
 }
 
 export default PaginationComponent;
