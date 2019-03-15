@@ -145,7 +145,7 @@ PaginationComponent.defaultProps = {
     maxPaginationNumbers: 5,
     activePage: 1,
     paginationProps: {},
-    paginationLink: {},
+    paginationLinkProps: {},
 }
 
 export default PaginationComponent;
