@@ -70,7 +70,7 @@ class PaginationComponent extends Component {
         }
         return (
             <PaginationItem key={name} disabled={this.state.activePage === page} onClick={() => this.handleClick(event)}>
-                <PaginationLink>
+                <PaginationLink {...this.props.PaginationLink}>
                     {name}
                 </PaginationLink>
             </PaginationItem>
@@ -138,12 +138,14 @@ PaginationComponent.propTypes = {
     maxPaginationNumbers: PropTypes.number,
     activePage: PropTypes.number,
     paginationProps: PropTypes.shape(),
+    paginationLink: PropTypes.shape(),
 }
 
 PaginationComponent.defaultProps = {
     maxPaginationNumbers: 5,
     activePage: 1,
     paginationProps: {},
+    paginationLink: {},
 }
 
 export default PaginationComponent;
