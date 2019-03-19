@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Pagination, PaginationItem, PaginationLink } from 'reactstrap';
 import PropTypes from 'prop-types';
-import { 
-    FaAngleRight ,
-    FaAngleLeft,
-    FaAngleDoubleRight,
-    FaAngleDoubleLeft
-} from "react-icons/fa";
+// import { 
+//     FaAngleRight ,
+//     FaAngleLeft,
+//     FaAngleDoubleRight,
+//     FaAngleDoubleLeft
+// } from "react-icons/fa";
 
 class PaginationComponent extends Component {
     constructor(props) {
@@ -61,10 +61,10 @@ class PaginationComponent extends Component {
     nextOrPreviousPagItem = (name, page, direction) => {
         return (
             <PaginationItem key={name} disabled={this.state.activePage === page} onClick={(e) => this.handleSelectNextOrPrevious(direction)}>
-                <PaginationLink >
-                    {window.innerWidth>600 
+                <PaginationLink  {...this.props.paginationLinkProps}>{name}
+                    {/* {window.innerWidth>600 
                     ? name
-                    : name === 'Previous' ? <FaAngleLeft size={21} /> : <FaAngleRight size={21}/> }
+                    : name === 'Previous' ? <FaAngleLeft size={21} /> : <FaAngleRight size={21}/> } */}
                 </PaginationLink>
             </PaginationItem>
         )
@@ -78,10 +78,10 @@ class PaginationComponent extends Component {
         }
         return (
             <PaginationItem key={name} disabled={this.state.activePage === page} onClick={() => this.handleClick(event)}>
-                <PaginationLink >
-                    {window.innerWidth>600
+                <PaginationLink {...this.props.paginationLinkProps} >{name}
+                    {/* {window.innerWidth>600
                     ? name
-                    : name === 'First'? <FaAngleDoubleLeft size={21}/>:<FaAngleDoubleRight size={21}/> }
+                    : name === 'First'? <FaAngleDoubleLeft size={21}/>:<FaAngleDoubleRight size={21}/> } */}
                 </PaginationLink>
             </PaginationItem>
         )
