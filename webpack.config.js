@@ -1,41 +1,32 @@
-var path = require('path');
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 module.exports = {
-    entry: './src/PaginationComponent.js',
+    entry: './dev/index.js',
     output: {
-        path: path.resolve(__dirname, 'build'),
-        filename: 'PaginationComponent.js',
-        libraryTarget: 'commonjs2'
+        path: path.resolve(__dirname, 'dev'),
+        filename: 'webpack.bundle.js'
+    },
+    mode:'development',
+    devServer: {
+        contentBase: './dev'
     },
     module: {
         rules: [
             {
                 test: /\.js$/,
-                include: path.resolve(__dirname, 'src'),
-                exclude: /(node_modules|bower_components|build)/,
                 use: {
-                    loader: 'babel-loader'
+                    loader: "babel-loader"
                 }
+            },
+            {
+                test: /\.css|scss|sass$/,
+                use: ["style-loader", "css-loader", "sass-loader"]
             }
+
         ]
     },
-    resolve: {
-        alias: {
-            'react': path.resolve(__dirname, './node_modules/react'),
-            'react-dom': path.resolve(__dirname, './node_modules/react-dom')
-        }
-    },
-    externals: {
-        react: {          
-            commonjs: "react",          
-            commonjs2: "react",          
-            amd: "React",          
-            root: "React"      
-        },      
-        "react-dom": {          
-            commonjs: "react-dom",          
-            commonjs2: "react-dom",          
-            amd: "ReactDOM",          
-            root: "ReactDOM"      
-        }  
-    }
-};
+    plugins: [
+        new HtmlWebpackPlugin({ template: './dev/index.html' }),
+    ]
+}
