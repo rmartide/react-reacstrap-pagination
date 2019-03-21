@@ -55,7 +55,7 @@ class PaginationComponent extends Component {
     nextOrPreviousPagItem = (name, page, direction) => {
         return (
             <PaginationItem key={name} disabled={this.state.activePage === page} onClick={(e) => this.handleSelectNextOrPrevious(direction)}>
-                <PaginationLink {...this.props.paginationLinkProps} >
+                <PaginationLink >
                 {name==='Previous' ? PrevComponent ? PrevComponent: name :NextComponent ? NextComponent: name }
                 </PaginationLink>
             </PaginationItem>
@@ -70,7 +70,7 @@ class PaginationComponent extends Component {
         }
         return (
             <PaginationItem key={name} disabled={this.state.activePage === page} onClick={() => this.handleClick(event)}>
-                <PaginationLink {...this.props.paginationLinkProps}>
+                <PaginationLink >
                 {name==='First' ? FirstComponent ? FirstComponent: name :LastComponent ? LastComponent: name }
                 </PaginationLink>
             </PaginationItem>
