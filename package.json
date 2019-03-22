@@ -4,8 +4,7 @@
   "description": "Reactstrap pagination component",
   "private": false,
   "dependencies": {
-    "prop-types": "^15.6.2",
-    "react-icons": "^3.3.0"
+    "prop-types": "^15.6.2"
   },
   "peerDependencies": {
     "react": "^16.4.1",
