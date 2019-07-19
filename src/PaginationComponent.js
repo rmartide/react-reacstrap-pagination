@@ -14,6 +14,9 @@ class PaginationComponent extends Component {
 
     componentWillReceiveProps(props) {
         this.pages = this.getNumberOfPages(props);
+        this.setState({
+           activePage:props.activePage
+        });
         this.forceUpdate();
     }
 
