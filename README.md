@@ -19,14 +19,21 @@ PaginationComponent.propTypes = {
   // Number of pages being displayed, by default 5
   maxPaginationNumbers: PropTypes.number,
   // Page where the pagination starts, by default 1
-  activePage: PropTypes.number
+  firstPageText: PropTypes.string
+  // Change text of "First" button
+  previousPageText: PropTypes.string
+  // Change text of "Previous" button
+  nextPageText: PropTypes.string
+  // Change text of "Next" button
+  lastPageText: PropTypes.string
+  // Change text of "Last" button
 }
 ```
 
 ## Usage
 
 ```js
-  <PaginationComponent totalItems={50} pageSize={5} onSelect={this.handleSelected} />
+<PaginationComponent totalItems={50} pageSize={5} onSelect={this.handleSelected} />
 ```
 
 ## Update
