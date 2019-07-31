@@ -174,6 +174,9 @@ function (_Component) {
     key: "componentWillReceiveProps",
     value: function componentWillReceiveProps(props) {
       this.pages = this.getNumberOfPages(props);
+      this.setState({
+        activePage: props.activePage
+      });
       this.forceUpdate();
     }
   }, {
