@@ -19,14 +19,17 @@ PaginationComponent.propTypes = {
   // Number of pages being displayed, by default 5
   maxPaginationNumbers: PropTypes.number,
   // Page where the pagination starts, by default 1
-  firstPageText: PropTypes.string
+  activePage: PropTypes.number
   // Change text of "First" button
-  previousPageText: PropTypes.string
+  firstPageText: PropTypes.string
   // Change text of "Previous" button
-  nextPageText: PropTypes.string
+  previousPageText: PropTypes.string
   // Change text of "Next" button
-  lastPageText: PropTypes.string
+  nextPageText: PropTypes.string
   // Change text of "Last" button
+  lastPageText: PropTypes.string
+  // Changes the size of the component. Values: "sm" and "lg"
+  size: PropTypes.string
 }
 ```
 

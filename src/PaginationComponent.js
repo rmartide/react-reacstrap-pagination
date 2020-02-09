@@ -55,6 +55,12 @@ class PaginationComponent extends Component {
   };
 
   numberedPagItem = i => {
+    let minWidth = "43.5px";
+    if(this.props.size === "lg") {
+      minWidth = "71px"
+    } else if (this.props.size === "sm") {
+      minWidth = "33px"
+    }
     return (
       <PaginationItem
         key={i}
@@ -62,7 +68,7 @@ class PaginationComponent extends Component {
         active={this.state.activePage === i}
         onClick={this.handleClick}
       >
-        <PaginationLink style={{ minWidth: "43.5px" }}>{i}</PaginationLink>
+        <PaginationLink style={{ minWidth }}>{i}</PaginationLink>
       </PaginationItem>
     );
   };
@@ -151,7 +157,7 @@ class PaginationComponent extends Component {
   };
 
   render() {
-    return <Pagination>{this.paginationItems()}</Pagination>;
+    return <Pagination size={this.props.size}>{this.paginationItems()}</Pagination>;
   }
 }
 
@@ -164,7 +170,8 @@ PaginationComponent.propTypes = {
   firstPageText: PropTypes.string,
   previousPageText: PropTypes.string,
   nextPageText: PropTypes.string,
-  lastPageText: PropTypes.string
+  lastPageText: PropTypes.string,
+  size: PropTypes.string
 };
 
 PaginationComponent.defaultProps = {
