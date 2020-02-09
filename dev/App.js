@@ -16,7 +16,7 @@ class App extends React.Component {
       <div>
         <h1>Boilerplate</h1>
         <PaginationComponent
-          size="sm"
+          size="lg"
           totalItems={30}
           pageSize={1}
           onSelect={this.handleSelected}

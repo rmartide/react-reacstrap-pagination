@@ -75,6 +75,14 @@ function (_Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "numberedPagItem", function (i) {
+      var minWidth = "43.5px";
+
+      if (_this.props.size === "lg") {
+        minWidth = "71px";
+      } else if (_this.props.size === "sm") {
+        minWidth = "33px";
+      }
+
       return _react.default.createElement(_reactstrap.PaginationItem, {
         key: i,
         id: "pagebutton".concat(i),
@@ -82,7 +90,7 @@ function (_Component) {
         onClick: _this.handleClick
       }, _react.default.createElement(_reactstrap.PaginationLink, {
         style: {
-          minWidth: "43.5px"
+          minWidth: minWidth
         }
       }, i));
     });
@@ -182,7 +190,9 @@ function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      return _react.default.createElement(_reactstrap.Pagination, null, this.paginationItems());
+      return _react.default.createElement(_reactstrap.Pagination, {
+        size: this.props.size
+      }, this.paginationItems());
     }
   }]);
 
@@ -198,7 +208,8 @@ PaginationComponent.propTypes = {
   firstPageText: _propTypes.default.string,
   previousPageText: _propTypes.default.string,
   nextPageText: _propTypes.default.string,
-  lastPageText: _propTypes.default.string
+  lastPageText: _propTypes.default.string,
+  size: _propTypes.default.string
 };
 PaginationComponent.defaultProps = {
   maxPaginationNumbers: 5,
