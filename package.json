@@ -4,6 +4,7 @@
   "description": "Reactstrap pagination component",
   "private": false,
   "dependencies": {
+    "memoize-one": "^5.1.1",
     "prop-types": "^15.7.2"
   },
   "peerDependencies": {
@@ -27,7 +28,6 @@
     "bootstrap": "^4.4.1",
     "css-loader": "^1.0.1",
     "html-webpack-plugin": "^3.2.0",
-    "memoize-one": "^5.1.1",
     "node-sass": "^4.13.1",
     "prettier": "^1.19.1",
     "react": "^16.12.0",

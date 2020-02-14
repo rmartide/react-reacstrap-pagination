@@ -19,7 +19,7 @@ PaginationComponent.propTypes = {
   // Number of pages being displayed, by default 5
   maxPaginationNumbers: PropTypes.number,
   // Page where the pagination starts, by default 1
-  activePage: PropTypes.number
+  defaultActivePage: PropTypes.number
   // Change text of "First" button
   firstPageText: PropTypes.string
   // Change text of "Previous" button
@@ -28,7 +28,7 @@ PaginationComponent.propTypes = {
   nextPageText: PropTypes.string
   // Change text of "Last" button
   lastPageText: PropTypes.string
-  // Changes the size of the component. Values: "sm" and "lg"
+  // Changes the size of the component. Values: "sm" and "lg". Without the prop the size is normal.
   size: PropTypes.string
 }
 ```
@@ -39,8 +39,17 @@ PaginationComponent.propTypes = {
 <PaginationComponent totalItems={50} pageSize={5} onSelect={this.handleSelected} />
 ```
 
-## Update
+## Update 2.0.0
 
-Now if the props change the component will update. (Thanks JaydeeSale!)
+- activePage prop changed to defaultActivePage. Now it correctly changes the numbers if the defaultActivePage is bigger than maxPaginationNumbers.
 
-Added prop activePage to have a different start page. (Thanks JalalAlbasri!)
+- Removed use of deprecated method componentWillReceiveProps.
+
+- It is possible to change any props, including defaultActivePage and it will update correctly (using state).
+
+- It was added on 1.0.8 but it's worth to mention, the size prop with the values "sm" or "lg" will make smaller or bigger the component. It was an option from the actual reacstrap PaginationItem component.
+
+
+
+
+

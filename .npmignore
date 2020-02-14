@@ -2,3 +2,4 @@ webpack.config.js
 .babelrc
 _config.yml
 /build
+/dev
