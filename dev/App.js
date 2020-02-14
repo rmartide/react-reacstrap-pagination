@@ -20,8 +20,8 @@ class App extends React.Component {
           totalItems={30}
           pageSize={1}
           onSelect={this.handleSelected}
-          activePage={4}
           maxPaginationNumbers={10}
+          defaultActivePage={11}
         />
       </div>
     );

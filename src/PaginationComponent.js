@@ -5,19 +5,12 @@ import PropTypes from "prop-types";
 class PaginationComponent extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      activePage: this.props.activePage,
-      firstPaginationNumber: 1
-    };
-    this.pages = this.getNumberOfPages(this.props);
-  }
 
-  componentWillReceiveProps(props) {
-    this.pages = this.getNumberOfPages(props);
-    this.setState({
-           activePage:props.activePage
-        });
-    this.forceUpdate();
+    this.pages = this.getNumberOfPages(this.props);
+
+    this.state = {
+      activePage: this.props.defaultActivePage
+    };
   }
 
   getNumberOfPages = props => {
@@ -29,12 +22,15 @@ class PaginationComponent extends Component {
 
   paginationItems = () => {
     let items = [];
-    this.lastPaginationNumber = this.getLastPaginationNumber();
+    // Since first and last PaginationNumber depend on activepage there's no reason to have them on the state
+    // So we just make the calculations when we need them
+    const firstPaginationNumber = this.getFirstPaginationNumber(this.state.activePage);
+    const lastPaginationNumber = this.getLastPaginationNumber(firstPaginationNumber);
     items.push(this.firstOrLastPagItem(this.props.firstPageText, 1));
     items.push(this.nextOrPreviousPagItem(this.props.previousPageText, 1, "l"));
     for (
-      var i = this.state.firstPaginationNumber;
-      i <= this.lastPaginationNumber;
+      let i = firstPaginationNumber;
+      i <= lastPaginationNumber;
       i++
     ) {
       items.push(this.numberedPagItem(i));
@@ -46,17 +42,17 @@ class PaginationComponent extends Component {
     return items;
   };
 
-  getLastPaginationNumber = () => {
+  getLastPaginationNumber = (firstPaginationNumber) => {
     const minNumberPages = Math.min(
       this.pages,
       this.props.maxPaginationNumbers
     );
-    return this.state.firstPaginationNumber + minNumberPages - 1;
+    return firstPaginationNumber + minNumberPages - 1;
   };
 
   numberedPagItem = i => {
     let minWidth = "43.5px";
-    if(this.props.size === "lg") {
+    if (this.props.size === "lg") {
       minWidth = "71px"
     } else if (this.props.size === "sm") {
       minWidth = "33px"
@@ -110,11 +106,7 @@ class PaginationComponent extends Component {
         .pop(),
       10
     );
-    this.setState({
-      activePage: newActivePage
-    });
-    this.handlePaginationNumber(newActivePage);
-    this.props.onSelect(newActivePage);
+    this.changePaginationState(newActivePage);
   };
 
   handleSelectNextOrPrevious = direction => {
@@ -127,33 +119,30 @@ class PaginationComponent extends Component {
 
     const newActivePage = direction === "r" ? activePage + 1 : activePage - 1;
 
+    this.changePaginationState(newActivePage);
+  };
+
+  changePaginationState = (newActivePage) => {
     this.setState({
       activePage: newActivePage
     });
 
-    this.handlePaginationNumber(newActivePage);
     this.props.onSelect(newActivePage);
-  };
+  }
 
-  handlePaginationNumber = activePage => {
+  getFirstPaginationNumber = (activePage) => {
     const distance = Math.floor(this.props.maxPaginationNumbers / 2);
     const newFPNumber = activePage - distance;
     const newLPNumber = activePage + distance;
+    let result = 1;
     if (newFPNumber <= distance) {
-      if (this.state.firstPaginationNumber !== 1) {
-        this.setState({
-          firstPaginationNumber: 1
-        });
-      }
+        result = 1;
     } else if (newLPNumber <= this.pages) {
-      this.setState({
-        firstPaginationNumber: newFPNumber
-      });
+      result = newFPNumber;
     } else if (newLPNumber >= this.pages) {
-      this.setState({
-        firstPaginationNumber: this.pages - this.props.maxPaginationNumbers + 1
-      });
+      result = this.pages - this.props.maxPaginationNumbers + 1;
     }
+    return result;
   };
 
   render() {
@@ -166,7 +155,7 @@ PaginationComponent.propTypes = {
   pageSize: PropTypes.number.isRequired,
   onSelect: PropTypes.func.isRequired,
   maxPaginationNumbers: PropTypes.number,
-  activePage: PropTypes.number,
+  defaultActivePage: PropTypes.number,
   firstPageText: PropTypes.string,
   previousPageText: PropTypes.string,
   nextPageText: PropTypes.string,
