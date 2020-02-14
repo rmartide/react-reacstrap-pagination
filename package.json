@@ -4,7 +4,7 @@
   "description": "Reactstrap pagination component",
   "private": false,
   "dependencies": {
-    "prop-types": "^15.6.2"
+    "prop-types": "^15.7.2"
   },
   "peerDependencies": {
     "react": "^16.4.1",
@@ -12,34 +12,43 @@
     "reactstrap": "^6.4.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.2.3",
-    "@babel/core": "^7.3.4",
-    "@babel/plugin-proposal-class-properties": "^7.3.4",
-    "@babel/plugin-transform-classes": "^7.3.4",
-    "@babel/preset-env": "^7.3.4",
-    "@babel/preset-react": "^7.0.0",
-    "babel-eslint": "^10.0.2",
-    "babel-loader": "^8.0.5",
-    "bootstrap": "^4.3.1",
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.4",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-transform-classes": "^7.8.3",
+    "@babel/plugin-transform-modules-umd": "^7.8.3",
+    "@babel/preset-env": "^7.8.4",
+    "@babel/preset-react": "^7.8.3",
+    "@rollup/plugin-commonjs": "^11.0.2",
+    "babel-eslint": "^10.0.3",
+    "babel-loader": "^8.0.6",
+    "babel-minify": "^0.5.1",
+    "babel-preset-minify": "^0.5.1",
+    "bootstrap": "^4.4.1",
     "css-loader": "^1.0.1",
     "html-webpack-plugin": "^3.2.0",
+    "memoize-one": "^5.1.1",
     "node-sass": "^4.13.1",
-    "prettier": "^1.18.2",
-    "react": "^16.4.1",
-    "react-dom": "^16.4.1",
-    "reactstrap": "^6.4.0",
-    "sass-loader": "^7.1.0",
+    "prettier": "^1.19.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "reactstrap": "^6.5.0",
+    "sass-loader": "^7.3.1",
     "style-loader": "^0.23.1",
-    "webpack": "^4.26.1",
-    "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.14"
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --open --hot",
-    "build": "babel src -d dist"
+    "build": "babel src -d dist",
+    "bili": "bili"
   },
   "author": "Rodrigo Martín de Lamo <mcgod69esp@gmail.com>",
+  "resolutions": {
+    "serialize-javascript": "^2.1.1"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/rmartide/react-reacstrap-pagination.git"
