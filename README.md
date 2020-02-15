@@ -47,7 +47,7 @@ PaginationComponent.propTypes = {
 
 - It is possible to change any props, including defaultActivePage and it will update correctly (using state).
 
-- It was added on 1.0.8 but it's worth to mention, the size prop with the values "sm" or "lg" will make smaller or bigger the component. It was an option from the actual reacstrap PaginationItem component.
+- It was added on 1.0.8 but it's worth to mention, the size prop with the values "sm" or "lg" will make smaller or bigger the component. It was an option from the actual Reactstrap PaginationItem component.
 
 
 

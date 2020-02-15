@@ -4,3 +4,7 @@ _config.yml
 /build
 /dev
 /utils
+.prettierrc
+.eslintrc
+.editorconfig
+src/
