@@ -3,6 +3,7 @@ import * as React from "react";
 export interface PaginationComponentProps {
   totalItems: number;
   pageSize: number;
+  onSelect: (option: Number) => void;
   maxPaginationNumbers?: number;
   defaultActivePage?: number;
   firstPageText?: string;
