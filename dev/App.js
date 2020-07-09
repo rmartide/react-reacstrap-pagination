@@ -1,5 +1,5 @@
 import React from 'react';
-import PaginationComponent from '../src/PaginationComponent';
+import PaginationComponent from '../dist/react-reactstrap-pagination.min.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends React.Component {
