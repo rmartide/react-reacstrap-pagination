@@ -14,7 +14,7 @@ jobs:
       - uses: actions/setup-node@master
         with:
           node-version: 12
-          registry-url: https://npm.pkg.github.com/
+          registry-url: https://npm.pkg.github.com/rmartide
       - run: npm config set scope "@rmartide"
       - run: npm publish --access public
         env:
