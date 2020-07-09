@@ -44,6 +44,9 @@
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0"
   },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/@rmartide"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --open --hot",
