@@ -8,3 +8,6 @@ _config.yml
 .eslintrc
 .editorconfig
 src/
+.github
+bili.config.js
+.gitignore
