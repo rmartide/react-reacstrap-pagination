@@ -18,8 +18,8 @@ jobs:
           scope: '@rmartide'
       - name: Authenticate with GitHub package registry
         run:
-          echo "//npm.pkg.github.com:_authToken=${{ secrets.GITHUB_TOKEN }}" >
+          echo "//npm.pkg.github.com:_authToken=${{ secrets.DOCKER }}" >
           ~/.npmrc
       - run: npm publish --access public
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.DOCKER }}
