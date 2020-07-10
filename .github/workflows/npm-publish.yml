@@ -21,7 +21,7 @@ jobs:
           echo "//npm.pkg.github.com:_authToken=${{ secrets.DOCKER }}" >
           ~/.npmrc
       - run: npm config set scope @rmartide
+      - run: ls -a
       - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.DOCKER }}
-      - run: ls -a
