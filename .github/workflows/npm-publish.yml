@@ -14,12 +14,13 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: '12.x'
-          registry-url: 'https://npm.pkg.github.com'
+          registry-url: 'https://npm.pkg.github.com/rmartide'
           scope: '@rmartide'
       - name: Authenticate with GitHub package registry
         run:
           echo "//npm.pkg.github.com:_authToken=${{ secrets.DOCKER }}" >
           ~/.npmrc
+      - run: npm config set scope @rmartide
       - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.DOCKER }}
