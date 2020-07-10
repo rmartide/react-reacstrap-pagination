@@ -50,7 +50,7 @@
     "start": "webpack-dev-server --open --hot",
     "build": "babel src -d dist",
     "bili": "bili",
-    "change-name": "json -I -f ./package.json -e this.name='@rmartide/react-reactstrap-pagination'"
+    "change-name": "json -I -f ./package.json -e this.name=\"@rmartide/react-reactstrap-pagination\""
   },
   "author": "Rodrigo Martín de Lamo <mcgod69esp@gmail.com>",
   "resolutions": {
