@@ -1,5 +1,5 @@
 {
-  "name": "react-reactstrap-pagination",
+  "name": "@rmartide/react-reactstrap-pagination",
   "version": "2.0.3",
   "description": "Reactstrap pagination component",
   "private": false,
