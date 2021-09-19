@@ -19,19 +19,19 @@ PaginationComponent.propTypes = {
   // Number of pages being displayed, by default 5
   maxPaginationNumbers: PropTypes.number,
   // Page where the pagination starts, by default 1
-  defaultActivePage: PropTypes.number
+  defaultActivePage: PropTypes.number,
   // Change text of "First" button
-  firstPageText: PropTypes.string
+  firstPageText: PropTypes.string,
   // Change text of "Previous" button
-  previousPageText: PropTypes.string
+  previousPageText: PropTypes.string,
   // Change text of "Next" button
-  nextPageText: PropTypes.string
+  nextPageText: PropTypes.string,
   // Change text of "Last" button
-  lastPageText: PropTypes.string
+  lastPageText: PropTypes.string,
   // Disable/enable first/last navigation
-  hasFirstLastNavigation: PropTypes.bool
+  hasFirstLastNavigation: PropTypes.bool,
   // Disable enable previous/next navigation
-  hasNextPreviousNavigation: PropTypes.bool
+  hasNextPreviousNavigation: PropTypes.bool,
   // Changes the size of the component. Values: "sm" and "lg". Without the prop the size is normal.
   size: PropTypes.string
 }
