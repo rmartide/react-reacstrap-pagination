@@ -32,7 +32,7 @@ class PaginationComponent extends PureComponent {
     const pages = this.getNumberOfPages(this.props);
     let items = [];
     const { activePage } = this;
-    const { firstPageText, previousPageText, nextPageText, lastPageText } = this.props;
+    const { firstPageText, previousPageText, nextPageText, lastPageText, hasFirstLastNavigation, hasNextPreviousNavigation } = this.props;
 
     // Since first and last PaginationNumber depend on activepage there's no reason to have them on the state
     // So we just make the calculations when we need them
