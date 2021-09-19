@@ -11,6 +11,8 @@ export interface PaginationComponentProps {
   nextPageText?: string;
   lastPageText?: string;
   size?: string;
+  hasFirstLastNavigation?: boolean;
+  hasNextPreviousNavigation?: boolean;
 }
 
 export default class PaginationComponent extends React.Component<
