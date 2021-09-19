@@ -2,7 +2,7 @@ import React from 'react';
 import PaginationComponent from '../src/PaginationComponent';
 //import PaginationComponent from '../dist/react-reactstrap-pagination.min.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Button from 'reactstrap';
+import {Button} from 'reactstrap';
 
 class App extends React.Component {
   state = {
