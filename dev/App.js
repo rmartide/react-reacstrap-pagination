@@ -27,6 +27,8 @@ class App extends React.Component {
             onSelect={this.handleSelected}
             maxPaginationNumbers={this.state.maxPaginationNumbers}
             defaultActivePage={this.state.defaultActivePage}
+            hasFirstLastNavigation={false}
+            hasNextPreviousNavigation={false}
           />
         </div>
         <div>

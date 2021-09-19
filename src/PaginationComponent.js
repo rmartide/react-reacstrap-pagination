@@ -40,16 +40,16 @@ class PaginationComponent extends PureComponent {
     const lastPaginationNumber = this.getLastPaginationNumber(firstPaginationNumber, pages);
 
     // Elements first and previous
-    firstPageText !== undefined && items.push(this.firstOrLastPagItem(firstPageText, 1));
-    previousPageText !== undefined && items.push(this.nextOrPreviousPagItem(previousPageText, 1, "l"));
+    hasFirstLastNavigation && items.push(this.firstOrLastPagItem(firstPageText, 1));
+    hasNextPreviousNavigation && items.push(this.nextOrPreviousPagItem(previousPageText, 1, "l"));
 
     // Page numbers
     for (let i = firstPaginationNumber; i <= lastPaginationNumber; i++) {
       items.push(this.numberedPagItem(i, activePage));
     }
     // Elements next and last
-    nextPageText !== undefined && items.push(this.nextOrPreviousPagItem(nextPageText, pages, "r"));
-    lastPageText !== undefined && items.push(this.firstOrLastPagItem(lastPageText, pages));
+    hasNextPreviousNavigation && items.push(this.nextOrPreviousPagItem(nextPageText, pages, "r"));
+    hasFirstLastNavigation && items.push(this.firstOrLastPagItem(lastPageText, pages));
     return items;
   };
 
@@ -172,7 +172,9 @@ PaginationComponent.propTypes = {
   previousPageText: PropTypes.string,
   nextPageText: PropTypes.string,
   lastPageText: PropTypes.string,
-  size: PropTypes.string
+  size: PropTypes.string,
+  hasNextPreviousNavigation: PropTypes.bool,
+  hasFirstLastNavigation: PropTypes.bool
 };
 
 PaginationComponent.defaultProps = {
@@ -181,7 +183,9 @@ PaginationComponent.defaultProps = {
   firstPageText: "First",
   previousPageText: "Previous",
   nextPageText: "Next",
-  lastPageText: "Last"
+  lastPageText: "Last",
+  hasNextPreviousNavigation: true,
+  hasFirstLastNavigation: true,
 };
 
 export default PaginationComponent;
