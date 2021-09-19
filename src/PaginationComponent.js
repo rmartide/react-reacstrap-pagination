@@ -24,7 +24,6 @@ class PaginationComponent extends PureComponent {
   );
 
   paginationItems = () => {
-
     if (this.props.defaultActivePage !== this.defaultActivePage) {
       this.defaultActivePage = this.props.defaultActivePage;
       this.activePage = this.defaultActivePage;
@@ -33,7 +32,7 @@ class PaginationComponent extends PureComponent {
     const pages = this.getNumberOfPages(this.props);
     let items = [];
     const { activePage } = this;
-    const { firstPageText, previousPageText, nextPageText, lastPageText } = this.props;
+    const { firstPageText, previousPageText, nextPageText, lastPageText, hasFirstLastNavigation, hasNextPreviousNavigation } = this.props;
 
     // Since first and last PaginationNumber depend on activepage there's no reason to have them on the state
     // So we just make the calculations when we need them
@@ -41,16 +40,16 @@ class PaginationComponent extends PureComponent {
     const lastPaginationNumber = this.getLastPaginationNumber(firstPaginationNumber, pages);
 
     // Elements first and previous
-    items.push(this.firstOrLastPagItem(firstPageText, 1));
-    items.push(this.nextOrPreviousPagItem(previousPageText, 1, "l"));
+    hasFirstLastNavigation && items.push(this.firstOrLastPagItem(firstPageText, 1));
+    hasNextPreviousNavigation && items.push(this.nextOrPreviousPagItem(previousPageText, 1, "l"));
 
     // Page numbers
     for (let i = firstPaginationNumber; i <= lastPaginationNumber; i++) {
       items.push(this.numberedPagItem(i, activePage));
     }
     // Elements next and last
-    items.push(this.nextOrPreviousPagItem(nextPageText, pages, "r"));
-    items.push(this.firstOrLastPagItem(lastPageText, pages));
+    hasNextPreviousNavigation && items.push(this.nextOrPreviousPagItem(nextPageText, pages, "r"));
+    hasFirstLastNavigation && items.push(this.firstOrLastPagItem(lastPageText, pages));
     return items;
   };
 
@@ -173,7 +172,9 @@ PaginationComponent.propTypes = {
   previousPageText: PropTypes.string,
   nextPageText: PropTypes.string,
   lastPageText: PropTypes.string,
-  size: PropTypes.string
+  size: PropTypes.string,
+  hasNextPreviousNavigation: PropTypes.bool,
+  hasFirstLastNavigation: PropTypes.bool
 };
 
 PaginationComponent.defaultProps = {
@@ -182,7 +183,9 @@ PaginationComponent.defaultProps = {
   firstPageText: "First",
   previousPageText: "Previous",
   nextPageText: "Next",
-  lastPageText: "Last"
+  lastPageText: "Last",
+  hasNextPreviousNavigation: true,
+  hasFirstLastNavigation: true,
 };
 
 export default PaginationComponent;

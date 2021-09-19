@@ -2,6 +2,7 @@ import React from 'react';
 import PaginationComponent from '../src/PaginationComponent';
 //import PaginationComponent from '../dist/react-reactstrap-pagination.min.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {Button} from 'reactstrap';
 
 class App extends React.Component {
   state = {
@@ -27,10 +28,12 @@ class App extends React.Component {
             onSelect={this.handleSelected}
             maxPaginationNumbers={this.state.maxPaginationNumbers}
             defaultActivePage={this.state.defaultActivePage}
+            hasFirstLastNavigation={false}
+            hasNextPreviousNavigation={false}
           />
         </div>
         <div>
-          <button onClick={()=>{this.setState({defaultActivePage:11, maxPaginationNumbers: 5})}}>Change default active page</button>
+          <Button color="primary" onClick={()=>{this.setState({defaultActivePage:11, maxPaginationNumbers: 5})}}>Change default active page</Button>
         </div>
       </>
     );

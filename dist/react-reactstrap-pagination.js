@@ -1,12 +1,14 @@
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('react'), require('reactstrap'), require('prop-types'), require('memoize-one')) :
   typeof define === 'function' && define.amd ? define(['react', 'reactstrap', 'prop-types', 'memoize-one'], factory) :
-  (global = global || self, global['react-reactstrap-pagination'] = factory(global.React, global.reactstrap, global.PropTypes, global.memoize));
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global['react-reactstrap-pagination'] = factory(global.React, global.reactstrap, global.PropTypes, global.memoize));
 }(this, (function (React, reactstrap, PropTypes, memoize) { 'use strict';
 
-  var React__default = 'default' in React ? React['default'] : React;
-  PropTypes = PropTypes && Object.prototype.hasOwnProperty.call(PropTypes, 'default') ? PropTypes['default'] : PropTypes;
-  memoize = memoize && Object.prototype.hasOwnProperty.call(memoize, 'default') ? memoize['default'] : memoize;
+  function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
+
+  var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
+  var PropTypes__default = /*#__PURE__*/_interopDefaultLegacy(PropTypes);
+  var memoize__default = /*#__PURE__*/_interopDefaultLegacy(memoize);
 
   function _classCallCheck(instance, Constructor) {
     if (!(instance instanceof Constructor)) {
@@ -82,7 +84,7 @@
     if (typeof Proxy === "function") return true;
 
     try {
-      Date.prototype.toString.call(Reflect.construct(Date, [], function () {}));
+      Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {}));
       return true;
     } catch (e) {
       return false;
@@ -100,6 +102,8 @@
   function _possibleConstructorReturn(self, call) {
     if (call && (typeof call === "object" || typeof call === "function")) {
       return call;
+    } else if (call !== void 0) {
+      throw new TypeError("Derived constructors may only return object or undefined");
     }
 
     return _assertThisInitialized(self);
@@ -136,7 +140,7 @@
 
       _this = _super.call(this, _props);
 
-      _defineProperty(_assertThisInitialized(_this), "getNumberOfPages", memoize(function (props) {
+      _defineProperty(_assertThisInitialized(_this), "getNumberOfPages", memoize__default['default'](function (props) {
         var auxPages = props.totalItems / props.pageSize;
         var pages = parseInt(auxPages, 10);
         pages += pages !== auxPages ? 1 : 0;
@@ -160,7 +164,9 @@
             firstPageText = _this$props.firstPageText,
             previousPageText = _this$props.previousPageText,
             nextPageText = _this$props.nextPageText,
-            lastPageText = _this$props.lastPageText; // Since first and last PaginationNumber depend on activepage there's no reason to have them on the state
+            lastPageText = _this$props.lastPageText,
+            hasFirstLastNavigation = _this$props.hasFirstLastNavigation,
+            hasNextPreviousNavigation = _this$props.hasNextPreviousNavigation; // Since first and last PaginationNumber depend on activepage there's no reason to have them on the state
         // So we just make the calculations when we need them
 
         var firstPaginationNumber = _this.getFirstPaginationNumber(activePage, pages);
@@ -168,16 +174,16 @@
         var lastPaginationNumber = _this.getLastPaginationNumber(firstPaginationNumber, pages); // Elements first and previous
 
 
-        items.push(_this.firstOrLastPagItem(firstPageText, 1));
-        items.push(_this.nextOrPreviousPagItem(previousPageText, 1, "l")); // Page numbers
+        hasFirstLastNavigation && items.push(_this.firstOrLastPagItem(firstPageText, 1));
+        hasNextPreviousNavigation && items.push(_this.nextOrPreviousPagItem(previousPageText, 1, "l")); // Page numbers
 
         for (var i = firstPaginationNumber; i <= lastPaginationNumber; i++) {
           items.push(_this.numberedPagItem(i, activePage));
         } // Elements next and last
 
 
-        items.push(_this.nextOrPreviousPagItem(nextPageText, pages, "r"));
-        items.push(_this.firstOrLastPagItem(lastPageText, pages));
+        hasNextPreviousNavigation && items.push(_this.nextOrPreviousPagItem(nextPageText, pages, "r"));
+        hasFirstLastNavigation && items.push(_this.firstOrLastPagItem(lastPageText, pages));
         return items;
       });
 
@@ -212,12 +218,12 @@
           minWidth = "33px";
         }
 
-        return /*#__PURE__*/React__default.createElement(reactstrap.PaginationItem, {
+        return /*#__PURE__*/React__default['default'].createElement(reactstrap.PaginationItem, {
           key: i,
           id: "pagebutton".concat(i),
           active: activePage === i,
           onClick: _this.handleClick
-        }, /*#__PURE__*/React__default.createElement(reactstrap.PaginationLink, {
+        }, /*#__PURE__*/React__default['default'].createElement(reactstrap.PaginationLink, {
           style: {
             minWidth: minWidth
           }
@@ -225,13 +231,13 @@
       });
 
       _defineProperty(_assertThisInitialized(_this), "nextOrPreviousPagItem", function (name, page, direction) {
-        return /*#__PURE__*/React__default.createElement(reactstrap.PaginationItem, {
+        return /*#__PURE__*/React__default['default'].createElement(reactstrap.PaginationItem, {
           key: name,
           disabled: _this.activePage === page,
           onClick: function onClick(e) {
             return _this.handleSelectNextOrPrevious(direction);
           }
-        }, /*#__PURE__*/React__default.createElement(reactstrap.PaginationLink, null, name));
+        }, /*#__PURE__*/React__default['default'].createElement(reactstrap.PaginationLink, null, name));
       });
 
       _defineProperty(_assertThisInitialized(_this), "firstOrLastPagItem", function (name, page) {
@@ -242,13 +248,13 @@
             }
           }
         };
-        return /*#__PURE__*/React__default.createElement(reactstrap.PaginationItem, {
+        return /*#__PURE__*/React__default['default'].createElement(reactstrap.PaginationItem, {
           key: name,
           disabled: _this.activePage === page,
           onClick: function onClick() {
             return _this.handleClick(event);
           }
-        }, /*#__PURE__*/React__default.createElement(reactstrap.PaginationLink, null, name));
+        }, /*#__PURE__*/React__default['default'].createElement(reactstrap.PaginationLink, null, name));
       });
 
       _defineProperty(_assertThisInitialized(_this), "handleClick", function (event) {
@@ -291,7 +297,7 @@
     _createClass(PaginationComponent, [{
       key: "render",
       value: function render() {
-        return /*#__PURE__*/React__default.createElement(reactstrap.Pagination, {
+        return /*#__PURE__*/React__default['default'].createElement(reactstrap.Pagination, {
           size: this.props.size
         }, this.paginationItems());
       }
@@ -301,16 +307,18 @@
   }(React.PureComponent);
 
   PaginationComponent.propTypes = {
-    totalItems: PropTypes.number.isRequired,
-    pageSize: PropTypes.number.isRequired,
-    onSelect: PropTypes.func.isRequired,
-    maxPaginationNumbers: PropTypes.number,
-    defaultActivePage: PropTypes.number,
-    firstPageText: PropTypes.string,
-    previousPageText: PropTypes.string,
-    nextPageText: PropTypes.string,
-    lastPageText: PropTypes.string,
-    size: PropTypes.string
+    totalItems: PropTypes__default['default'].number.isRequired,
+    pageSize: PropTypes__default['default'].number.isRequired,
+    onSelect: PropTypes__default['default'].func.isRequired,
+    maxPaginationNumbers: PropTypes__default['default'].number,
+    defaultActivePage: PropTypes__default['default'].number,
+    firstPageText: PropTypes__default['default'].string,
+    previousPageText: PropTypes__default['default'].string,
+    nextPageText: PropTypes__default['default'].string,
+    lastPageText: PropTypes__default['default'].string,
+    size: PropTypes__default['default'].string,
+    hasNextPreviousNavigation: PropTypes__default['default'].bool,
+    hasFirstLastNavigation: PropTypes__default['default'].bool
   };
   PaginationComponent.defaultProps = {
     maxPaginationNumbers: 5,
@@ -318,7 +326,9 @@
     firstPageText: "First",
     previousPageText: "Previous",
     nextPageText: "Next",
-    lastPageText: "Last"
+    lastPageText: "Last",
+    hasNextPreviousNavigation: true,
+    hasFirstLastNavigation: true
   };
 
   return PaginationComponent;

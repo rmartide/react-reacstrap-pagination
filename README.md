@@ -19,15 +19,19 @@ PaginationComponent.propTypes = {
   // Number of pages being displayed, by default 5
   maxPaginationNumbers: PropTypes.number,
   // Page where the pagination starts, by default 1
-  defaultActivePage: PropTypes.number
+  defaultActivePage: PropTypes.number,
   // Change text of "First" button
-  firstPageText: PropTypes.string
+  firstPageText: PropTypes.string,
   // Change text of "Previous" button
-  previousPageText: PropTypes.string
+  previousPageText: PropTypes.string,
   // Change text of "Next" button
-  nextPageText: PropTypes.string
+  nextPageText: PropTypes.string,
   // Change text of "Last" button
-  lastPageText: PropTypes.string
+  lastPageText: PropTypes.string,
+  // Disable/enable first/last navigation
+  hasFirstLastNavigation: PropTypes.bool,
+  // Disable enable previous/next navigation
+  hasNextPreviousNavigation: PropTypes.bool,
   // Changes the size of the component. Values: "sm" and "lg". Without the prop the size is normal.
   size: PropTypes.string
 }
@@ -50,6 +54,7 @@ PaginationComponent.propTypes = {
 - It was added on 1.0.8 but it's worth to mention, the size prop with the values "sm" or "lg" will make smaller or bigger the component. It was an option from the actual Reactstrap PaginationItem component.
 
 
+## Update 2.0.5
 
-
-
+- Added ability to disable/enable first/last navigations
+- Added ability to disable/enable previous/next navigations
