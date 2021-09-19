@@ -1,6 +1,6 @@
 {
   "name": "react-reactstrap-pagination",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "Reactstrap pagination component",
   "private": false,
   "dependencies": {
@@ -8,7 +8,7 @@
     "prop-types": "^15.7.2"
   },
   "peerDependencies": {
-    "react": "^16.13.1",
+    "react": "^16.13.1||^17.0.2",
     "react-dom": "^16.13.1",
     "reactstrap": "^8.5.1"
   },

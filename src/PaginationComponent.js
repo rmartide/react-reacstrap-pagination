@@ -24,7 +24,6 @@ class PaginationComponent extends PureComponent {
   );
 
   paginationItems = () => {
-
     if (this.props.defaultActivePage !== this.defaultActivePage) {
       this.defaultActivePage = this.props.defaultActivePage;
       this.activePage = this.defaultActivePage;
@@ -41,16 +40,16 @@ class PaginationComponent extends PureComponent {
     const lastPaginationNumber = this.getLastPaginationNumber(firstPaginationNumber, pages);
 
     // Elements first and previous
-    items.push(this.firstOrLastPagItem(firstPageText, 1));
-    items.push(this.nextOrPreviousPagItem(previousPageText, 1, "l"));
+    firstPageText !== undefined && items.push(this.firstOrLastPagItem(firstPageText, 1));
+    previousPageText !== undefined && items.push(this.nextOrPreviousPagItem(previousPageText, 1, "l"));
 
     // Page numbers
     for (let i = firstPaginationNumber; i <= lastPaginationNumber; i++) {
       items.push(this.numberedPagItem(i, activePage));
     }
     // Elements next and last
-    items.push(this.nextOrPreviousPagItem(nextPageText, pages, "r"));
-    items.push(this.firstOrLastPagItem(lastPageText, pages));
+    nextPageText !== undefined && items.push(this.nextOrPreviousPagItem(nextPageText, pages, "r"));
+    lastPageText !== undefined && items.push(this.firstOrLastPagItem(lastPageText, pages));
     return items;
   };
 
